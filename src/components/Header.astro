@@ -1,0 +1,178 @@
+---
+import "../styles/global.css/";
+import "../styles/reset.css/";
+import Popover from "../components/Popover.astro";
+---
+
+<div class="container">
+  <div class="toggle-btn" id="toggle-btn">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+  <div id="sidebar">
+    <nav>
+      <ul>
+        <h4>AskExperts</h4>
+        <li><a href="#cases">Home</a></li>
+        <li><a href="#method">Case Study</a></li>
+        <li><a href="#about">Team</a></li>
+        <li><a href="#contact">About</a></li>
+      </ul>
+    </nav>
+    <Popover />
+  </div>
+</div>
+<script>
+  const sidebar = document.getElementById("sidebar");
+  const toggleBtn = document.getElementById("toggle-btn");
+
+  toggleBtn?.addEventListener("click", function (event) {
+    event.stopPropagation();
+    sidebar?.classList.toggle("active");
+    toggleBtn?.classList.toggle("active");
+  });
+</script>
+<style>
+  nav {
+    padding: 10px 30px;
+  }
+
+  #sidebar {
+    position: static;
+    width: auto;
+    height: auto;
+    background: none;
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+
+    button {
+      display: flex;
+      padding: 4px 16px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 20px;
+      background: #ffcc4a;
+    }
+
+    h4 {
+      color: #fff;
+      font-family: Cabin;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 1.05;
+    }
+  }
+
+  #sidebar ul {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  #sidebar ul li {
+    list-style: none;
+    padding: 0;
+    margin: 0 3.5rem;
+    letter-spacing: 0.05rem;
+  }
+
+  #sidebar ul li a {
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    font-family: Lato;
+    font-size: 17.728px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+  }
+
+  #sidebar ul li a:hover {
+    color: #ffcc4a;
+  }
+
+  .toggle-btn {
+    display: none;
+  }
+
+  @media (width < 900px) {
+    .container {
+      position: relative;
+    }
+
+    #sidebar {
+      position: absolute;
+      width: 400px;
+      height: 100vh;
+      background: rgba(27, 27, 27, 0.91);
+      right: -500px;
+      top: 0;
+      transition: right 0.4s;
+      z-index: 1;
+    }
+
+    #sidebar.active {
+      right: 0;
+    }
+
+    #sidebar ul {
+      flex-direction: column;
+    }
+
+    #sidebar ul li {
+      list-style: none;
+      color: #fff;
+      justify-content: space-between;
+      align-items: flex-start;
+      background: rgba(27, 27, 27, 0.91);
+      backdrop-filter: blur(10.5px);
+      margin-top: 1.5rem;
+      letter-spacing: 0.25rem;
+    }
+
+    #sidebar ul li a {
+      text-decoration: none;
+      display: grid;
+      text-align: center;
+      font-family: system-ui;
+      color: #fff;
+    }
+
+    .toggle-btn {
+      display: block;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .toggle-btn span {
+      width: 40px;
+      height: 2px;
+      color: #fff;
+      display: block;
+      margin: 8px auto;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .toggle-btn.active .bar:nth-child(1) {
+      transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    .toggle-btn.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .toggle-btn.active .bar:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+  }
+</style>

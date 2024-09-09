@@ -1,0 +1,121 @@
+---
+import "../styles/global.css/";
+import "../styles/reset.css/";
+---
+
+<!-- what to expectttttt! -->
+<main>
+  <section class="WhatToExpect">
+    <div class="leftside_graphics">
+      <img src="/src/assets/images/whattoexpect_photo.jpg" alt="whattoexpect_photo" />
+    </div>
+    <div class="rightside_text">
+      <div class="yellow_p"><p>WE'LL WORK WITH YOU</p></div>
+      <h2>What to expect</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <br />
+      <div class="whattoexpect_bullets">
+        <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day.</p>
+        <br />
+        <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test override the digital.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<style>
+  :root {
+    --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
+    --step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
+    --step-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+    --step-1: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
+    --step-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
+    --step-3: clamp(1.944rem, 1.771rem + 0.8651vw, 2.4414rem);
+    --step-4: clamp(2.3328rem, 2.0827rem + 1.2504vw, 3.0518rem);
+    --step-5: clamp(2.7994rem, 2.4462rem + 1.7658vw, 3.8147rem);
+  }
+
+  main {
+    background-color: white;
+  }
+
+  .WhatToExpect {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
+    max-width: 1200px;
+    padding: 2rem;
+    gap: 20px;
+
+    .leftside_graphics {
+      grid-column: 1/2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        max-width: 100%;
+        border-radius: 20px;
+      }
+    }
+
+    .rightside_text {
+      grid-column: 2/3;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+
+      h2 {
+        color: black;
+        font-size: var(--step-3);
+        font-weight: 700;
+      }
+
+      p {
+        color: black;
+      }
+
+      .whattoexpect_bullets {
+        p {
+          font-size: 12px;
+          font-weight: 300;
+          justify-content: end;
+        }
+      }
+    }
+
+    .yellow_p {
+      background-color: #ffcc4a;
+      align-self: start;
+      border-radius: 10px;
+
+      p {
+        color: black;
+        font-size: var(--step--1);
+        padding: 5px;
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    .WhatToExpect {
+      grid-template-columns: 1fr;
+      text-align: center;
+
+      .leftside_graphics {
+        grid-column: 1/-1;
+        margin-bottom: 20px;
+      }
+
+      .rightside_text {
+        grid-column: 1/-1;
+        align-items: center;
+        text-align: left;
+
+        h2 {
+          font-size: var(--step-2);
+        }
+      }
+    }
+  }
+</style>

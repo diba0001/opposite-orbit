@@ -1,0 +1,115 @@
+---
+import "../styles/global.css/";
+import "../styles/reset.css/";
+import ContactInfo from "./ContactInfo.astro";
+import Image from "astro/components/Image.astro";
+import home1 from "../assets/images/home1.jpg";
+import home2 from "../assets/images/home2.jpg";
+import home3 from "../assets/images/home3.jpg";
+import home4 from "../assets/images/home4.jpg";
+import { Icon } from "astro-icon/components";
+---
+
+<section class="ContactUs_ItsEasy">
+  <article class="del1">
+    <div class="yellow_p"><p>PROCESS</p></div>
+    <h2>Contact Us. It’s Easy.</h2>
+    <p class="article_p">Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative.</p>
+
+    <ContactInfo iconname="call-today" tekst="Call Today" h6="+1 800 100 900" />
+    <ContactInfo iconname="monday-friday" tekst="Monday To Friday" h6="9AM - 5PM" />
+    <ContactInfo iconname="adress-grey" tekst="USA Office" h6="195 Devonshire St Boston, MA 02110" />
+  </article>
+  <figure>
+    <div class="billede-grid">
+      <Image alt="" src={home2} />
+      <div>
+        <Image alt="" src={home3} />
+        <Image alt="" src={home4} />
+      </div>
+    </div>
+  </figure>
+</section>
+<style>
+  .yellow_p {
+    background-color: #ffcc4a;
+    align-self: start;
+    border-radius: 10px;
+
+    p {
+      color: black;
+      font-size: var(--step--1);
+      padding: 5px;
+    }
+  }
+
+  .ContactUs_ItsEasy {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 5rem;
+    color: black;
+    background-color: white;
+    gap: 69px;
+
+    .del1 {
+      display: flex;
+      flex-direction: column;
+
+      h2 {
+        font-size: var(--step-2);
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+      }
+    }
+
+    p {
+      line-height: 1.5;
+      padding-top: 5px;
+    }
+  }
+
+  .article_p {
+    padding-bottom: 2rem;
+  }
+
+  .billede-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    :last-child {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+
+  @media (max-width: 900px) {
+    .ContactUs_ItsEasy {
+      grid-template-columns: 1fr;
+      gap: 40px; 
+      padding: 2rem;
+
+      .del1,
+      .billede-grid {
+        grid-column: 1/-1; 
+      }
+
+      .billede-grid {
+        grid-template-columns: 1fr; 
+
+      h2 {
+        text-align: center;
+      }
+
+      .article_p,
+      .yellow_p {
+        text-align: center; 
+      }
+      img {
+        display: none;
+      }
+    }
+  }
+</style>

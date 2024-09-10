@@ -7,10 +7,11 @@ import EmployeeCard from "../components/EmployeeCard.astro";
 import EmployeeSection from "../components/EmployeeSection.astro";
 import { Icon } from "astro-icon/components";
 import WhatToExpect from "../components/WhatToExpect.astro";
-import Tag from "../components/Tag.astro";
 import ContactUs_ItsEasy from "../components/ContactUs-ItsEasy.astro";
 import YellowGraphicsSection from "../components/Yellow_graphics_section.astro";
-
+import Scrolling_container from "../components/Scrolling_container.astro";
+import { cardContent } from "../data/card-content.js";
+import HeroSection from "../components/Hero-section.astro";
 /* const employeeData = await fetch("https://raw.githubusercontent.com/diba0001/frontend-design/main/resources/json/employees.json").then((res) => res.json()); */
 ---
 
@@ -18,9 +19,11 @@ import YellowGraphicsSection from "../components/Yellow_graphics_section.astro";
 <Layout title="Home">
   <EmployeeCard img="/src/assets/images/XXX.jpg" />
   <EmployeeCard />
+  <HeroSection />
   <WhatToExpect />
-  <ContactUs_ItsEasy />
+  <Scrolling_container data={cardContent} />
   <YellowGraphicsSection />
+  <ContactUs_ItsEasy />
 </Layout>
 
 <style>

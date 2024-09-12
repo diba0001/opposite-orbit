@@ -7,7 +7,7 @@ const { buttonProps1, background } = Astro.props;
 const { title, subtitle, button, values } = data;
 ---
 
-<section class={`${background} container`}>
+<section class={`${background} CV-container`}>
   <div class="del1">
     <div class="text">
       <Tag style="tertiary">Growing with our Clients</Tag>
@@ -34,13 +34,22 @@ const { title, subtitle, button, values } = data;
 
 <style>
   @layer components {
-    .container {
+    .CV-container {
       grid-column: full;
       display: grid;
       grid-template-columns: var(--layout-grid2);
       grid-template-rows: var(--layout-rows2);
       row-gap: 2rem;
       padding: 5rem 0;
+
+      a {
+        text-decoration: none;
+        color: var(--color-primary3);
+      }
+
+      a:hover {
+        color: var(--color-primary1);
+      }
       @media (width < 600px) {
         display: block;
         padding-inline: 1rem;

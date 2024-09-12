@@ -13,6 +13,16 @@
     --primary-color-03: #181818;
     --secondary-color-01: #f5f5f5; 
     --secondary-color-02: #ffffff; 
+    --secondary-color-03: #DADADA; 
+    --color-primary1: #ffcc4a;
+    --color-primary2: #4eaf4e;
+    --color-primary3: #181818;
+    --color-secondary1: #f5f5f5;
+    --color-secondary2: #ffffff;
+    --color-text: #595566;
+    --color-card: #ebebeb;
+    --color-faq: #dadada;
+    --color-navigation: #1b1b1b 91%;
     --navigation-color-01: rgba(27, 27, 27, 0.91);
     --font-family-base: "Lato", sans-serif;
     --font-family-heading: "Cabin", sans-serif;
@@ -21,6 +31,15 @@
     --gap: clamp(1rem, 6vw, 3rem);
     --full: minmax(var(--gap), 1fr);
     --content: min(75rem, 100% - var(--gap) * 2);
+
+        --gap: clamp(1rem, 6vw, 3rem);
+    --full: minmax(var(--gap), 1fr);
+    --content: min(75rem, 100% - var(--gap) * 2);
+
+    --layout-grid: [full-start] 1fr [content] minmax(0, 1200px) 1fr [full-end];
+    --layout-grid2: [full-start] 1fr [content] minmax(0, 600px) minmax(0, 600px) 1fr [full-end];
+    --layout-rows2: 1fr auto auto;
+    --layout-rows3: auto 1fr auto;
   }
 
 :root {

@@ -12,6 +12,9 @@ import YellowGraphicsSection from "../components/Yellow_graphics_section.astro";
 import Scrolling_container from "../components/Scrolling_container.astro";
 import { cardContent } from "../data/card-content.js";
 import HeroSection from "../components/Hero-section.astro";
+import CorevaluesSection from "../components/CorevaluesSection.astro";
+import CorevaluesCard from "../components/CorevaluesCard.astro";
+const corevalueData = await fetch("https://raw.githubusercontent.com/espi0001/frontend-design/main/resources/json/corevalues.json").then((res) => res.json());
 /* const employeeData = await fetch("https://raw.githubusercontent.com/diba0001/frontend-design/main/resources/json/employees.json").then((res) => res.json()); */
 ---
 
@@ -23,6 +26,7 @@ import HeroSection from "../components/Hero-section.astro";
   <WhatToExpect />
   <Scrolling_container data={cardContent} />
   <YellowGraphicsSection />
+  <CorevaluesSection data={corevalueData} background="white" tagProps={{ style: "secondary" }} buttonProps1={{ style: "primary" }}>Growing with our Clients</CorevaluesSection>
   <ContactUs_ItsEasy />
 </Layout>
 

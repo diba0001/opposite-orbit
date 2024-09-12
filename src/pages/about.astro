@@ -1,14 +1,26 @@
 ---
+import AboutSection1 from "../components/AboutSection1.astro";
+import AboutSection2 from "../components/AboutSection2.astro";
+import Accordion from "../components/Accordion.astro";
+import Hero from "../components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
+import CorevaluesSection from "../components/CorevaluesSection.astro";
+const corevalueData = await fetch("https://raw.githubusercontent.com/espi0001/frontend-design/main/resources/json/corevalues.json").then((res) => res.json());
 /* const employeeData = await fetch("https://raw.githubusercontent.com/diba0001/frontend-design/main/resources/json/employees.json").then((res) => res.json()); */
 ---
 
-<Layout title="Home" />
+<Layout title="About">
+  <Hero />
+  <CorevaluesSection data={corevalueData} background="white" tagProps={{ style: "secondary" }} buttonProps1={{ style: "primary" }}>Growing with our Clients</CorevaluesSection>
+  <AboutSection1 />
+  <AboutSection2 />
 
-<style>
-  [data-icon="XXX.svg"] {
-    width: 24px;
-    height: 24px;
-  }
-</style>
+  <Accordion />
+  <style>
+    [data-icon="XXX.svg"] {
+      width: 24px;
+      height: 24px;
+    }
+  </style>
+</Layout>

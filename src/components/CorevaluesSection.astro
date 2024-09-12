@@ -1,0 +1,155 @@
+---
+import Tag from "./Tag.astro";
+import { Icon } from "astro-icon/components";
+
+const { data } = Astro.props;
+const { buttonProps1, background } = Astro.props;
+const { title, subtitle, button, values } = data;
+---
+
+<section class={`${background} container`}>
+  <div class="del1">
+    <div class="text">
+      <Tag style="tertiary">Growing with our Clients</Tag>
+      <h2>{title}</h2>
+
+      <p>{subtitle}</p>
+    </div>
+  </div>
+
+  <ul role="list" class="del2">
+    {
+      values.map((corevalue) => (
+        <li>
+          <Icon name={corevalue.icon} />
+
+          <h5>{corevalue.title}</h5>
+          <p>{corevalue.description}</p>
+          <a href={corevalue.link.url}>{corevalue.link.text}</a>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  @layer components {
+    .container {
+      grid-column: full;
+      display: grid;
+      grid-template-columns: var(--layout-grid2);
+      grid-template-rows: var(--layout-rows2);
+      row-gap: 2rem;
+      padding: 5rem 0;
+      @media (width < 600px) {
+        display: block;
+        padding-inline: 1rem;
+      }
+      > * {
+        grid-column: 2;
+      }
+
+      > ul {
+        scroll-snap-type: x mandatory;
+        grid-column: 1 / -1;
+        padding-inline: max(1rem, 50% - var(--content) / 10px);
+        padding-block-end: 1rem;
+
+        li {
+          scroll-snap-align: center;
+          &:first-child {
+            margin-left: calc(50% - var(--content) / 2);
+            @media (width < 600px) {
+              margin-left: 0px;
+            }
+          }
+
+          &:last-child {
+            margin-right: calc(50% - var(--content) / 2);
+            @media (width < 600px) {
+              margin-right: 0px;
+            }
+          }
+        }
+      }
+      .del1 {
+        display: flex;
+        grid-column: 2 / 4;
+        justify-content: space-between;
+        @media (width < 600px) {
+          flex-direction: column;
+          align-items: start;
+        }
+
+        .text {
+          display: flex;
+          flex-direction: column;
+          max-width: 50%;
+          @media (width < 600px) {
+            max-width: none;
+          }
+          .icon {
+            width: 100px;
+          }
+        }
+
+        .knap {
+          align-self: end;
+        }
+      }
+
+      .del2 {
+        display: flex;
+        justify-content: space-between;
+        /* gap: 2.25rem; */
+        overflow-x: auto;
+        list-style: none;
+        margin-top: 0;
+
+        @media (width < 600px) {
+          flex-direction: column;
+        }
+
+        li {
+          flex-basis: min(272px, 90%);
+          flex-shrink: 0;
+          background: var(--color-card);
+          color: var(--color-text);
+          border-radius: 8px;
+          font-size: 1rem;
+          padding: 2.25rem 1.44rem;
+          align-self: start;
+          display: grid;
+          gap: 10px;
+          margin-top: 2rem;
+
+          @media (width < 600px) {
+            flex-basis: none;
+          }
+          h6 {
+            font-weight: 700;
+            font-size: 1.5625rem;
+          }
+
+          svg {
+            width: 53px;
+          }
+        }
+        .icon-card {
+          width: 40px;
+          margin-bottom: 14px;
+        }
+      }
+    }
+
+    .black {
+      background: var(--color-primary3);
+      color: var(--color-secondary2);
+    }
+
+    .white {
+      background: var(--color-secondary1);
+      color: var(--color-primary3);
+    }
+  }
+</style>
